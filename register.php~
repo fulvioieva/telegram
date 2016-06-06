@@ -1,7 +1,7 @@
 <?php
 
 // PARAMETRI DA MODIFICARE
-$WEBHOOK_URL = 'https://mupinbot.heroku.com/apps/execute.php';
+$WEBHOOK_URL = 'http://www.javaless.com/telegram/execute.php';
 $BOT_TOKEN = '236381908:AAEP4Nf2zZgjniZqp4RN4whzzQELQzfUnXU';
 
 // NON APPORTARE MODIFICHE NEL CODICE SEGUENTE
