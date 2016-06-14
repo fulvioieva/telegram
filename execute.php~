@@ -2,6 +2,10 @@
 $content = file_get_contents("php://input");
 $update = json_decode($content, true);
 
+if(!$update)
+{
+  exit;
+}
 
 $message = isset($update['message']) ? $update['message'] : "";
 $messageId = isset($message['message_id']) ? $message['message_id'] : "";
@@ -14,18 +18,6 @@ $text = isset($message['text']) ? $message['text'] : "";
 
 $text = trim($text);
 $text = strtolower($text);
-if(!$update)
-{
- header("Content-Type: application/json"); 
- $parameters = array('chat_id' => $chatId, "text" => "Errore");
- // method è il metodo per l'invio di un messaggio (cfr. API di Telegram)
- $parameters["method"] = "sendMessage";
- // converto e stampo l'array JSON sulla response
- echo json_encode($parameters);
- exit;
-}
-
-
 
 header("Content-Type: application/json");
 $parameters = array('chat_id' => $chatId, "text" => $text);
