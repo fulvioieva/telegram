@@ -15,6 +15,7 @@ $sendto =API_URL."sendmessage?chat_id=".$chatID."&text=".$reply;
 file_get_contents($sendto);
 
 function sendMessage(){
-$message = "Benvenuto al Mupin sono le :".getdate();
+$date = getdate();
+$message = "Benvenuto al Mupin sono le :".$date[hours].":".$date[minutes];
 return $message;
 }
