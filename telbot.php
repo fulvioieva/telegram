@@ -18,7 +18,7 @@ checkJSON($chatID,$update);
 	function sendMessage(){
 		$date = getdate();
 		$message = "Benvenuto al Mupin sono le :".$date[hours].":".$date[minutes]."\n";
-		$message += $update["message"]["chat"]["first_name"];
+		$message .= $update["message"]["chat"]["first_name"];
 		return $message;
 	}
 
