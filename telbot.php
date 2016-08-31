@@ -13,9 +13,22 @@ $reply =  sendMessage();
 // send reply
 $sendto =API_URL."sendmessage?chat_id=".$chatID."&text=".$reply;
 file_get_contents($sendto);
+checkJSON($chatID,$update);
 
-function sendMessage(){
-$date = getdate();
-$message = "Benvenuto al Mupin sono le :".$date[hours].":".$date[minutes];
-return $message;
-}
+	function sendMessage(){
+		$date = getdate();
+		$message = "Benvenuto al Mupin sono le :".$date[hours].":".$date[minutes];
+		return $message;
+	}
+
+
+
+	function checkJSON($chatID,$update){
+	
+		$myFile = "log.txt";
+		$updateArray = print_r($update,TRUE);
+		$fh = fopen($myFile, 'a') or die("can't open file");
+		fwrite($fh, $chatID ."\n\n");
+		fwrite($fh, $updateArray."\n\n");
+		fclose($fh);
+	}
