@@ -13,11 +13,11 @@ $reply =  sendMessage();
 // send reply
 $sendto =API_URL."sendmessage?chat_id=".$chatID."&text=".$reply;
 file_get_contents($sendto);
-
+$sendto =API_URL."sendmessage?chat_id=".$chatID."&text=".$update["message"]["text"];
+file_get_contents($sendto);
 // send photo
 
 $url        = API_URL."sendPhoto?chat_id=" . $chatID ;
-
 $post_fields = array('chat_id'   => $chat_id,
     'photo'     => new CURLFile(realpath("amiga.png"))
 );
@@ -36,7 +36,7 @@ $output = curl_exec($ch);
 
 	function sendMessage(){
 		$date = getdate();
-		$message = "Benvenuto al Mupin sono le ".$date[hours].":".$date[minutes]." ".$update["message"]["text"];
+		$message = "Benvenuto al Mupin sono le ".$date[hours].":".$date[minutes];
 		
 		return $message;
 	}

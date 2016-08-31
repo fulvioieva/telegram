@@ -36,7 +36,7 @@ $output = curl_exec($ch);
 
 	function sendMessage(){
 		$date = getdate();
-		$message = "Benvenuto al Mupin sono le ".$date[hours].":".$date[minutes]." ".$update["message"]["chat"]["id"];
+		$message = "Benvenuto al Mupin sono le ".$date[hours].":".$date[minutes]." ".$update["message"]["text"];
 		
 		return $message;
 	}
