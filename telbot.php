@@ -39,7 +39,7 @@ $output = curl_exec($ch);
 		$date = getdate();
 		$ore = $date[hours];
 		$minuti = $date[minutes];
-		if (srlen($minuti)==1) $minutes .= '0'.$minuti;
+		if (srlen($minuti)==1) $minuti .= '0'.$minuti;
 		$message = "Benvenuto al Mupin sono le ".$ore.":".$minuti;
 		
 		return $message;
