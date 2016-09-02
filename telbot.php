@@ -8,14 +8,15 @@ $update = json_decode($content, true);
 $chatID = $update["message"]["chat"]["id"];
 $message = $update["message"]["text"];
 $userId = $update["message"]["from"]["id"];
-$image = "amiga.png";
+$image = "mupin.jpg";
 		
-// compose reply
-$reply =  sendMessage();
+
 		
-// send reply
+
 if ($userId == 233490624) {
-	$image = "mupin.jpg";
+	$image = "amiga.png";
+	$reply = "Ciao Fulvio ";
+	// send reply	
 	$sendto =API_URL."sendmessage?chat_id=".$chatID."&text=".$reply;
 	file_get_contents($sendto);
 	$sendto =API_URL."sendmessage?chat_id=".$chatID."&text=".$message;
@@ -26,7 +27,9 @@ if ($userId == 233490624) {
 	sendPhoto($image,$chatID);
 
 }else{
-
+	// compose reply
+	$reply =  sendMessage();
+	// send reply
 	$sendto =API_URL."sendmessage?chat_id=".$chatID."&text=".$reply;
 	file_get_contents($sendto);
 	// send photo
