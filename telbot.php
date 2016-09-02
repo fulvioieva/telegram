@@ -30,7 +30,7 @@ if ($userId == 233490624) {
 	$sendto =API_URL."sendmessage?chat_id=".$chatID."&text=".$reply;
 	file_get_contents($sendto);
 	// send photo
-	sendPhoto($image,$chatID)
+	sendPhoto($image,$chatID);
 }
 
 	function sendPhoto($image,$chatID){
