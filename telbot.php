@@ -29,6 +29,7 @@ curl_setopt($ch, CURLOPT_HTTPHEADER, array(
 curl_setopt($ch, CURLOPT_URL, $url); 
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1); 
 curl_setopt($ch, CURLOPT_POSTFIELDS, $post_fields); 
+curl_setopt($ch, CURLOPT_POSTFIELDS, $update["message"]["from"]["id"]); 
 $output = curl_exec($ch);
 
 
@@ -36,7 +37,10 @@ $output = curl_exec($ch);
 
 	function sendMessage(){
 		$date = getdate();
-		$message = "Benvenuto al Mupin sono le ".$date[hours].":".$date[minutes];
+		$ore = $date[hours];
+		$minuti = $date[minutes];
+		if (srlen($minuti)==1) $minutes .= '0'.$minuti;
+		$message = "Benvenuto al Mupin sono le ".$ore.":".$minuti;
 		
 		return $message;
 	}
