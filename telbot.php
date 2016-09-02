@@ -15,6 +15,8 @@ $sendto =API_URL."sendmessage?chat_id=".$chatID."&text=".$reply;
 file_get_contents($sendto);
 $sendto =API_URL."sendmessage?chat_id=".$chatID."&text=".$update["message"]["text"];
 file_get_contents($sendto);
+$sendto =API_URL."sendmessage?chat_id=".$chatID."&text=".$update["message"]["from"]["id"];
+file_get_contents($sendto);
 // send photo
 
 $url        = API_URL."sendPhoto?chat_id=" . $chatID ;
@@ -29,7 +31,7 @@ curl_setopt($ch, CURLOPT_HTTPHEADER, array(
 curl_setopt($ch, CURLOPT_URL, $url); 
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1); 
 curl_setopt($ch, CURLOPT_POSTFIELDS, $post_fields); 
-curl_setopt($ch, CURLOPT_POSTFIELDS, $update["message"]["from"]["id"]); 
+
 $output = curl_exec($ch);
 
 
